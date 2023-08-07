@@ -1,0 +1,91 @@
+{{extend 'layout.html'}}
+
+<style>
+  .form-container {
+    margin-top: 150px;
+    max-width: 600px;
+    box-shadow: 15.32px 15.32px 18px #D0D2D6, -15.32px -15.32px 18px #FFFFFF;
+    border-radius: 30px;
+    background-color: #EEF0F4;
+    padding: 30px 20px;
+    text-align: center;
+  }
+  .title {
+    font-family: "Anonymous Pro", monospace;
+    font-weight: bold;
+    color: rgb(151, 151, 151);
+  }
+  .input-item-box {
+    box-shadow: 15.32px 15.32px 18px #D0D2D6, -15.32px -15.32px 18px #FFFFFF, inset 9.91px 9.91px 15px #D9DADE, inset -9.91px -9.91px 15px #FFFFFF;
+    border-radius: 30px;
+    width: 100%;
+    padding: 10px 20px;
+    outline: none;
+    color: rgb(91, 91, 91);
+    border: 5px solid #EEF0F4;
+    margin-top: 10px;  
+    font-family: "Anonymous Pro", monospace;
+    font-weight: bold;
+  }
+  .btn-style {
+    width: 80%;
+    box-shadow: 15.32px 15.32px 18px #D0D2D6, -15.32px -15.32px 18px #FFFFFF;
+    border-radius: 20px;
+    font-weight: bold;
+    color: rgb(151, 151, 151);
+    height: 50px;
+    border: none;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 18px
+  }
+  
+  .sign-up-btn {
+    margin-top: 20px;
+    box-shadow: 15.32px 15.32px 18px #D0D2D6, -15.32px -15.32px 18px #FFFFFF;
+    border-radius: 15px;
+    font-weight: bold;
+    color: rgb(151, 151, 151);
+    height: 40px;
+    border: none;
+  }
+</style>
+
+<div class="container form-container login" id="login" style="display: block;">
+  <h1 class="title">Login</h1>
+    <form>
+      <input class="input-item-box" id="username" name="username" placeholder="Username" required><br><br>
+
+      <input class="input-item-box" type="password" id="password" name="password" placeholder="Password" required><br><br>
+      
+      <a class="btn btn-style" href="{{=URL('inspector', 'cam')}}" style="color: rgb(151, 151, 151);">Login</a>
+    </form>
+    <button class="sign-up-btn" id="signUpBtn" onclick="toggle()">Create an account</button>
+</div>
+
+<div class="container form-container sign-up" id="signUp" style="display: none;">
+  <h1 class="title">Sign Up</h1>
+    <form>
+      <input class=" input-item-box" id="username" name="username" placeholder="Username" required><br><br>
+
+      <input class="input-item-box" type="password" id="password" name="password" placeholder="Password" required><br><br>
+      
+      <a class="btn btn-style" style="color: rgb(151, 151, 151);">Sign Up</a>
+    </form>
+    <button class="sign-up-btn" id="loginBtn" onclick="toggle()">Already have an account</button>
+</div>
+
+<script>
+
+  function toggle() {
+  var content = document.getElementById("signUp");
+  var content2 = document.getElementById("login");
+  if (content.style.display === "none") {
+    content.style.display = "block";
+    content2.style.display = "none";
+  } else {
+    content.style.display = "none";
+    content2.style.display = "block";
+  }
+}
+</script>
